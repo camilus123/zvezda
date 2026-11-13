@@ -1,0 +1,166 @@
+
+== Sun ==
+PASS  main-sequence lifetime                                                      11 Gyr                                                        [9 .. 12]   ref: roughly 10 Gyr (brief); SSE gives 11.0
+PASS  L at 4.6 Gyr                                                                0.9585 Lsun                                                   [0.9 .. 1.1]   ref: 1.00
+PASS  R at 4.6 Gyr                                                                0.9856 Rsun                                                   [0.9 .. 1.1]   ref: 1.00
+PASS  Teff at 4.6 Gyr                                                             5753 K                                                        [5600 .. 5900]   ref: 5772
+PASS  ZAMS luminosity                                                             0.6977 Lsun                                                   [0.65 .. 0.75]   ref: ~0.70 (standard solar models)
+PASS  remnant type (11 = CO white dwarf)                                          11                                                            [11]
+PASS  white dwarf mass                                                            0.52 Msun                                                     [0.5 .. 0.6]   ref: 0.5 - 0.6 (brief)
+PASS  RGB-tip luminosity                                                          2742 Lsun                                                     [1800 .. 3200]   ref: ~2500 (observed TRGB)
+PASS  largest radius (AGB)                                                        221.4 Rsun                                                    [150 .. 300]   ref: ~200, about 1 au
+info  white dwarf after 1 Gyr of cooling                                          L = 3.569e-4 Lsun, Teff = 6725 K                                 ref: detailed models: ~1e-3 Lsun, ~8000 K; the Mestel-type law is rough
+PASS  equatorial velocity at 4.6 Gyr (v0 = 5 % crit)                              2.811 km/s                                                    [1.2 .. 3.5]   ref: 2.0 km/s
+PASS  rotation period at 4.6 Gyr                                                  17.74 d                                                       [15 .. 40]   ref: 25.4 d (equator)
+PASS  spin-down forgets initial spin (v0 = 40 % crit)                             1.047                                                         [0.9 .. 1.3]   ref: Skumanich convergence
+
+== MS lifetime ==
+PASS  0.8 Msun                                                                    26520 Myr                                                     [18770 .. 31280]   ref: Schaller+92: 25030 Myr (6 %)
+PASS  1 Msun                                                                      11000 Myr                                                     [7471 .. 12450]   ref: Schaller+92: 9962 Myr (10 %)
+PASS  1.25 Msun                                                                   4870 Myr                                                      [3684 .. 6141]   ref: Schaller+92: 4913 Myr (-1 %)
+PASS  1.5 Msun                                                                    2729 Myr                                                      [2021 .. 3368]   ref: Schaller+92: 2695 Myr (1 %)
+PASS  2 Msun                                                                      1164 Myr                                                      [837 .. 1395]   ref: Schaller+92: 1116 Myr (4 %)
+PASS  3 Msun                                                                      377.5 Myr                                                     [264.4 .. 440.6]   ref: Schaller+92: 352.5 Myr (7 %)
+PASS  5 Msun                                                                      104.2 Myr                                                     [70.84 .. 118.1]   ref: Schaller+92: 94.46 Myr (10 %)
+PASS  9 Msun                                                                      29.84 Myr                                                     [19.79 .. 32.99]   ref: Schaller+92: 26.39 Myr (13 %)
+PASS  15 Msun                                                                     12.68 Myr                                                     [8.688 .. 14.48]   ref: Schaller+92: 11.58 Myr (9 %)
+PASS  25 Msun                                                                     6.967 Myr                                                     [4.806 .. 8.01]   ref: Schaller+92: 6.408 Myr (9 %)
+PASS  40 Msun                                                                     4.893 Myr                                                     [3.227 .. 5.379]   ref: Schaller+92: 4.303 Myr (14 %)
+PASS  60 Msun                                                                     4.043 Myr                                                     [2.585 .. 4.309]   ref: Schaller+92: 3.447 Myr (17 %)
+WARN  120 Msun (extrapolated, above SSE's fitted range)                           3.399 Myr                                                     [1.921 .. 3.202]   ref: Schaller+92: 2.561 Myr (33 %)
+PASS  1 Msun, Z = 0.001                                                           6178 Myr                                                      [5150 .. 8583]   ref: Schaller+92: ~6866 Myr (-10 %)
+PASS  5 Msun, Z = 0.001                                                           91.48 Myr                                                     [73.2 .. 122]   ref: Schaller+92: ~97.6 Myr (-6 %)
+PASS  20 Msun, Z = 0.001                                                          9.976 Myr                                                     [6.825 .. 11.38]   ref: Schaller+92: ~9.1 Myr (10 %)
+
+== End state ==
+PASS  very low mass, outlives the Universe                                        M=0.2 Z=0.02: fate WD, type 10, 0.1837 Msun                   
+PASS  helium white dwarf                                                          M=0.5 Z=0.02: fate WD, type 10, 0.3641 Msun                   
+PASS  carbon-oxygen white dwarf                                                   M=3 Z=0.02: fate WD, type 11, 0.7497 Msun                     
+PASS  oxygen-neon white dwarf                                                     M=7.5 Z=0.02: fate WD, type 12, 1.36 Msun                     
+PASS  electron-capture supernova -> neutron star                                  M=6.8 Z=0.0001: fate ECSN, type 13, 1.261 Msun                
+PASS  core-collapse supernova -> neutron star                                     M=12 Z=0.02: fate CCSN, type 13, 1.278 Msun                   
+PASS  core-collapse supernova with fallback -> black hole                         M=25 Z=0.02: fate CCSN, type 14, 4.045 Msun                   
+PASS  direct collapse -> black hole                                               M=60 Z=0.0001: fate direct, type 14, 22.71 Msun               
+PASS  pulsational pair instability -> black hole                                  M=100 Z=0.0001: fate PPISN, type 14, 38.36 Msun               
+PASS  pair-instability supernova -> no remnant                                    M=200 Z=0.0001: fate PISN, type 15, 0 Msun                    
+PASS  above the pair-instability gap -> black hole                                M=300 Z=0.0001: fate photodis, type 14, 131.4 Msun            
+PASS  Wolf-Rayet phase reached                                                    M=60 Z=0.02: fate CCSN, type 14, 5.828 Msun                   
+PASS  thermal pulses on the AGB                                                   M=2 Z=0.02: fate WD, type 11, 0.6374 Msun                     
+PASS  WD/SN boundary moves with metallicity (7.5 Msun: WD at Z=0.02, NS at Z=1e-4)  12,13,13                                                      [12,13,13]
+PASS  weaker winds at low Z leave a heavier black hole (40 Msun, Z=0.001 vs 0.02)  2.221                                                         [1.5 .. 20]
+
+== Continuity ==
+PASS  largest step in log L or log R over 92 tracks                               0.102 dex                                                     [0 .. 0.12]   ref: at M=60 Z=0.02 hurley v=0.4, type 1->2
+
+== Colour ==
+PASS  CMF fit: integral x / integral y                                            0.9986                                                        [0.99 .. 1.01]   ref: 1.000 (CIE 1931)
+PASS  CMF fit: integral z / integral y                                            0.9991                                                        [0.99 .. 1.01]   ref: 1.000 (CIE 1931)
+PASS  blackbody 3000 K chromaticity error                                         0.001352                                                      [0 .. 0.004]   ref: Planckian locus (0.4369, 0.4041)
+PASS  blackbody 5000 K chromaticity error                                         3.488e-4                                                      [0 .. 0.004]   ref: Planckian locus (0.3451, 0.3516)
+PASS  blackbody 6500 K chromaticity error                                         7.293e-5                                                      [0 .. 0.004]   ref: Planckian locus (0.3135, 0.3237)
+PASS  blackbody 10000 K chromaticity error                                        1.027e-4                                                      [0 .. 0.004]   ref: Planckian locus (0.2807, 0.2884)
+PASS  blackbody 25000 K chromaticity error                                        3.778e-4                                                      [0 .. 0.004]   ref: Planckian locus (0.2525, 0.2525)
+info  linear sRGB, 30000 K / 5772 K / 3000 K                                      (0.36, 0.50, 1.00)  (1.00, 0.88, 0.82)  (1.00, 0.48, 0.15)       ref: pale blue-white / near white / orange
+PASS  hot stars stay pale: red channel at 30000 K                                 0.3634                                                        [0.35 .. 0.8]
+PASS  cool stars are orange, not deep red: green channel at 3000 K                0.4839                                                        [0.2 .. 0.6]
+
+== Rotation ==
+PASS  Roche equatorial/polar radius at break-up                                   1.5                                                           [1.5 .. 1.5]   ref: 1.5
+PASS  critical velocity of the Sun                                                356.6 km/s                                                    [355 .. 358]   ref: sqrt(GM/1.5R) = 356.6
+PASS  gravity darkening T_eq/T_pole at Omega = 0.5 Omega_crit vs ELR Eq 32        0.9606                                                        [0.9586 .. 0.9626]   ref: closed form 0.9606
+PASS  gravity darkening T_eq/T_pole at Omega = 0.9 Omega_crit vs ELR Eq 32        0.8315                                                        [0.8295 .. 0.8335]   ref: closed form 0.8315
+PASS  gravity darkening T_eq/T_pole at Omega = 0.98 Omega_crit vs ELR Eq 32       0.7422                                                        [0.7402 .. 0.7442]   ref: closed form 0.7422
+PASS  MS lifetime increase at v/vcrit = 0.4 (9 Msun)                              1.203                                                         [1.1 .. 1.3]   ref: Ekstrom+12: about +20 %
+info  2.2 Msun at v0 = 70 % crit, age 300 Myr                                     v_eq = 282.8 km/s, Omega/Omega_crit = 0.9046, R_eq/R_pole = 1.22     ref: no magnetic braking (radiative envelope)
+
+== Activity ==
+PASS  Rossby number of a 25.4-day Sun                                             1.746                                                         [1.65 .. 1.85]   ref: 1.75 on the Wright et al. 2011 scale (calibration)
+PASS  log L_X/L_bol of a 25.4-day Sun                                             -6.176                                                        [-6.8 .. -5.7]   ref: observed solar-cycle range -6.8 .. -5.7
+PASS  flares above 1e31 erg per year (X class and up)                             5.789 /yr                                                     [1 .. 30]   ref: Sun: roughly 15 X-class flares a year averaged over a cycle
+PASS  flares above 1e34 erg: years between events                                 174.5 yr                                                      [100 .. 5000]   ref: Maehara+12: ~800 yr for slowly rotating Sun-like stars
+PASS  flare-associated mass ejections per day                                     0.2843 /day                                                   [0.1 .. 6]   ref: Sun: 0.5 (minimum) to 5 (maximum) CMEs per day in total
+PASS  starspot coverage                                                           0.1005 %                                                      [0.02 .. 0.5]   ref: Sun: ~0.01-0.4 % over a cycle
+info  the model Sun as evolved (it spins a little fast)                           P = 17.74 d, Ro = 1.219, log L_X/L = -5.755                   
+PASS  Sun at 50 Myr is saturated: log L_X/L_bol                                   -3.13                                                         [-3.2 .. -3]   ref: -3.13 (Wright+11)
+PASS  young Sun flares far more often (ratio at 1e32 erg)                         810.7                                                         [100 .. 5000]   ref: young solar analogues: superflares every few days
+PASS  A star (2.5 Msun, radiative envelope) has none                              false                                                         [false]
+PASS  red giant near the tip: log L_X/L_bol                                       -18.75                                                        [-30 .. -9]   ref: slowly rotating giants show no measurable corona
+PASS  CME probability for an X-class (3e31 erg) flare                             0.892                                                         [0.8 .. 1]   ref: Yashiro+06: ~90 %
+
+== Burning ==
+PASS  Sun today: CNO share of hydrogen burning                                    0.9558 %                                                      [0.7 .. 1.5]   ref: about 1 % (Borexino 2020); this fixes the normalisation
+PASS  Sun today: central temperature                                              15.56 MK                                                      [15 .. 16.2]   ref: 15.7 MK (standard solar model)
+PASS  ZAMS mass where CNO overtakes pp                                            2.04 Msun                                                     [1.3 .. 2.2]   ref: textbooks: 1.3-1.5 Msun over the main sequence; depends on the adopted 14N(p,g) rate
+PASS  same, 60 % of the way through the main sequence                             1.6 Msun                                                      [1.2 .. 1.8]   ref: textbooks: 1.3-1.5 Msun
+PASS  0.3 Msun: CNO share                                                         1.829e-6 %                                                    [0 .. 0.01]   ref: negligible
+PASS  10 Msun: CNO share                                                          99.56 %                                                       [99 .. 100]   ref: > 99 %
+PASS  red clump star: core helium share                                           36.41 %                                                       [20 .. 60]   ref: detailed models: roughly a third to a half, the rest from the hydrogen shell
+PASS  advanced-burning events on the 18 Msun track                                carbon,neon,oxygen,silicon                                    [carbon,neon,oxygen,silicon]
+PASS  panel shows the stage and its shells at every late-stage point (SSE types 5, 7, 8)  0                                                             [0]
+PASS  7.5 Msun: off-centre carbon burning shown before the oxygen-neon core       true                                                          [true]
+PASS  pair-instability star: no invented late stages, but a note on what follows  true                                                          [true]
+PASS  red giant core: 1 Msun degenerate, ignites at the model value 0.48 Msun     true true                                                     [true true]
+PASS  red giant core: 3 and 9 Msun not degenerate                                 true true                                                     [true true]
+PASS  no advanced burning for a star that ends as a white dwarf                   false                                                         [false]
+PASS  auto pace: shortest real time given to any of C, Ne, O, Si burning          6.973 s                                                       [5 .. 30]   ref: each stage must be watchable
+PASS  18 Msun, 1 year before collapse                                             Oxygen burning in the core                                    [Oxygen burning in the core]   ref: Woosley+02
+PASS  quantified shares always sum to 100 %                                       true                                                          [true]
+
+86/86 checks passed, 0 failed, 1 outside tolerance in the extrapolated regime (WARN)
+
+===== comparison with COSMIC 4.3.3 (Fortran SSE) =====
+ok   M=0.3   Z=0.02   hurley  dt=0.000%  dm=0.11%  rem 10/10 0.256/0.256  
+ok   M=0.8   Z=0.02   hurley  dt=0.000%  dm=0.26%  rem 10/10 0.475/0.474  
+ok   M=1     Z=0.02   hurley  dt=0.000%  dm=0.38%  rem 11/11 0.520/0.520  
+ok   M=1.5   Z=0.02   hurley  dt=0.000%  dm=0.07%  rem 11/11 0.577/0.577  
+ok   M=2.5   Z=0.02   hurley  dt=0.001%  dm=0.18%  rem 11/11 0.691/0.690  
+ok   M=4     Z=0.02   hurley  dt=0.004%  dm=0.06%  rem 11/11 0.867/0.867  
+ok   M=6.5   Z=0.02   hurley  dt=0.014%  dm=0.09%  rem 12/12 1.212/1.211  
+ok   M=9     Z=0.02   hurley  dt=0.001%  dm=0.01%  rem 13/13 1.278/1.278  
+ok   M=12    Z=0.02   hurley  dt=0.001%  dm=0.01%  rem 13/13 1.278/1.278  
+ok   M=20    Z=0.02   hurley  dt=0.002%  dm=0.37%  rem 14/14 3.023/2.895  
+ok   M=35    Z=0.02   hurley  dt=0.029%  dm=0.10%  rem 14/14 5.085/5.143  
+ok   M=60    Z=0.02   hurley  dt=0.030%  dm=0.18%  rem 14/14 4.865/4.945  
+ok   M=100   Z=0.02   hurley  dt=0.051%  dm=0.36%  rem 14/14 6.950/7.285  
+ok   M=0.3   Z=0.02   vink    dt=0.000%  dm=0.11%  rem 10/10 0.256/0.256  
+ok   M=0.8   Z=0.02   vink    dt=0.000%  dm=0.22%  rem 10/10 0.475/0.474  
+ok   M=1     Z=0.02   vink    dt=0.000%  dm=0.38%  rem 11/11 0.520/0.520  
+ok   M=1.5   Z=0.02   vink    dt=0.000%  dm=0.13%  rem 11/11 0.577/0.577  
+ok   M=2.5   Z=0.02   vink    dt=0.002%  dm=0.24%  rem 11/11 0.691/0.690  
+ok   M=4     Z=0.02   vink    dt=0.038%  dm=0.53%  rem 11/11 0.870/0.866  
+ok   M=6.5   Z=0.02   vink    dt=0.092%  dm=0.58%  rem 12/12 1.212/1.205  
+ok   M=9     Z=0.02   vink    dt=0.002%  dm=0.01%  rem 13/13 1.278/1.278  
+ok   M=12    Z=0.02   vink    dt=0.003%  dm=0.02%  rem 13/13 1.278/1.278  
+ok   M=20    Z=0.02   vink    dt=0.006%  dm=0.32%  rem 14/14 3.023/2.895  
+ok   M=35    Z=0.02   vink    dt=0.137%  dm=0.37%  rem 14/14 5.132/5.172  
+ok   M=60    Z=0.02   vink    dt=0.069%  dm=0.41%  rem 14/14 5.828/5.956  
+ok   M=100   Z=0.02   vink    dt=0.065%  dm=0.37%  rem 14/14 8.321/8.868  
+ok   M=0.3   Z=0.001  hurley  dt=0.000%  dm=0.08%  rem 10/10 0.269/0.269  
+ok   M=0.8   Z=0.001  hurley  dt=0.002%  dm=0.38%  rem 11/11 0.534/0.534  
+ok   M=1     Z=0.001  hurley  dt=0.000%  dm=0.18%  rem 11/11 0.578/0.578  
+ok   M=1.5   Z=0.001  hurley  dt=0.000%  dm=0.11%  rem 11/11 0.673/0.672  
+ok   M=2.5   Z=0.001  hurley  dt=0.001%  dm=0.13%  rem 11/11 0.864/0.863  
+ok   M=4     Z=0.001  hurley  dt=0.005%  dm=0.08%  rem 11/11 1.010/1.009  
+note M=6.5 Z=0.001: ONe WD of 1.413 Msun here, NS in COSMIC (its ECSN option; see comment)
+ok   M=9     Z=0.001  hurley  dt=0.000%  dm=0.01%  rem 13/13 1.278/1.278  
+ok   M=12    Z=0.001  hurley  dt=0.000%  dm=0.02%  rem 13/13 1.450/1.450  
+ok   M=20    Z=0.001  hurley  dt=0.000%  dm=0.03%  rem 14/14 6.619/6.856  
+ok   M=35    Z=0.001  hurley  dt=0.027%  dm=0.07%  rem 14/14 12.283/13.147  
+ok   M=60    Z=0.001  hurley  dt=0.026%  dm=0.29%  rem 14/14 6.575/6.854  
+ok   M=100   Z=0.001  hurley  dt=0.029%  dm=0.40%  rem 14/14 11.561/12.508  
+ok   M=0.3   Z=0.001  vink    dt=0.000%  dm=0.08%  rem 10/10 0.269/0.269  
+ok   M=0.8   Z=0.001  vink    dt=0.002%  dm=0.38%  rem 11/11 0.535/0.535  
+ok   M=1     Z=0.001  vink    dt=0.000%  dm=0.18%  rem 11/11 0.579/0.579  
+ok   M=1.5   Z=0.001  vink    dt=0.001%  dm=0.12%  rem 11/11 0.675/0.674  
+ok   M=2.5   Z=0.001  vink    dt=0.001%  dm=0.11%  rem 11/11 0.867/0.866  
+ok   M=4     Z=0.001  vink    dt=0.008%  dm=0.12%  rem 11/11 1.015/1.014  
+note M=6.5 Z=0.001: ONe WD of 1.418 Msun here, NS in COSMIC (its ECSN option; see comment)
+ok   M=9     Z=0.001  vink    dt=0.000%  dm=0.01%  rem 13/13 1.278/1.278  
+ok   M=12    Z=0.001  vink    dt=0.000%  dm=0.02%  rem 13/13 1.452/1.452  
+ok   M=20    Z=0.001  vink    dt=0.001%  dm=0.03%  rem 14/14 6.862/7.127  
+ok   M=35    Z=0.001  vink    dt=0.001%  dm=0.10%  rem 14/14 25.120/27.589  
+ok   M=60    Z=0.001  vink    dt=0.082%  dm=0.11%  rem 14/14 20.090/21.796  
+ok   M=100   Z=0.001  vink    dt=0.032%  dm=0.04%  rem 14/14 34.148/37.452  
+
+50/50 cases agree (type sequence identical, transition times within 1 %, masses within 3 %)
+worst transition-time difference 0.137 %, worst mass difference 0.58 %

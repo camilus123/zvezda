@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title data-i18n="doc.title">Zvezda: Stellar Evolution Viewer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="mode-setup">
+<canvas id="gl"></canvas>
+<div id="labels"></div>
+
+<!-- ======================= setup ======================= -->
+<section id="setup" class="panel">
+  <div class="titlerow"><h1>Zvezda</h1><div class="seg lang" id="langSetup" role="group" aria-label="Language / Jezik"><button data-lang="en">EN</button><button data-lang="sl">SL</button></div></div>
+  <p class="sub" data-i18n="setup.sub">Watch one star live its whole life, from the zero-age main sequence to whatever is left at the end.</p>
+
+  <div class="presets" id="presets"></div>
+
+  <label class="field">
+    <span class="name" data-i18n="setup.mass">Initial mass</span>
+    <span class="value"><input type="number" id="massNum" min="0.1" max="300" step="any"> M<sub>☉</sub></span>
+    <input type="range" id="mass" min="0" max="1" step="0.0005">
+    <span class="ticks"><i>0.1</i><i>1</i><i>10</i><i>100</i><i>300</i></span>
+  </label>
+  <label class="field">
+    <span class="name" data-i18n="setup.z">Metallicity Z</span>
+    <span class="value"><input type="number" id="zNum" min="0.0001" max="0.03" step="any"> <em id="feh"></em></span>
+    <input type="range" id="z" min="0" max="1" step="0.001">
+  </label>
+  <label class="field">
+    <span class="name" data-i18n="setup.rot">Initial rotation</span>
+    <span class="value"><input type="number" id="rotNum" min="0" max="0.95" step="0.01"> <span data-i18n="setup.ofCrit">of critical</span> <em id="veq"></em></span>
+    <input type="range" id="rot" min="0" max="0.95" step="0.005">
+  </label>
+  <div class="field">
+    <span class="name" data-i18n="setup.winds">Stellar winds</span>
+    <div class="seg" id="winds">
+      <button data-v="vink" class="on" data-i18n="winds.vink" data-i18n-title="winds.vink.title" title="Hurley et al. 2000 for cool stars, Vink et al. 2001 line-driven winds for hot stars, as in Belczynski et al. 2010">Updated (Vink)</button>
+      <button data-v="hurley" data-i18n="winds.hurley" data-i18n-title="winds.hurley.title" title="The original prescription of Hurley, Pols &amp; Tout 2000">Original SSE</button>
+    </div>
+  </div>
+
+  <dl class="zams" id="zams"></dl>
+  <p class="warn" id="extrap" hidden data-i18n-html="setup.extrap">Above 100 M<sub>☉</sub> the SSE formulae are extrapolated beyond the models they were fitted to. Treat everything about this star as approximate.</p>
+  <button id="start" class="primary" data-i18n="setup.start">Start</button>
+  <p class="fine" data-i18n-html="setup.fine">Evolution model: Hurley, Pols &amp; Tout (2000).</p>
+  <div class="footer"><span class="fine" id="version"></span><button id="bFpsSetup" class="toggle small" data-i18n-title="bar.fps.title">FPS</button></div>
+</section>
+
+<!-- ======================= simulation HUD ======================= -->
+<div id="hud">
+  <section id="clock" class="panel">
+    <div class="age"><span id="age">0</span><small id="ageUnit">yr</small></div>
+    <div class="phase" id="phase"></div>
+    <div class="clockrows">
+      <div class="clockrow"><span data-i18n="clock.speed">speed</span><b id="speed"></b></div>
+      <div class="clockrow"><span data-i18n="clock.exposure">exposure</span><b id="exposure"></b></div>
+      <div class="clockrow"><span data-i18n="clock.width">view width</span><b id="scale"></b></div>
+    </div>
+    <div class="badges" id="badges"></div>
+  </section>
+
+  <div id="panels">
+  <div id="tabs" role="tablist">
+    <button role="tab" data-tab="info" data-i18n="tab.info">Star</button>
+    <button role="tab" data-tab="burn" data-i18n="tab.burn">Energy</button>
+    <button role="tab" data-tab="act" data-i18n="tab.act">Activity</button>
+    <button id="sheetToggle" data-i18n-title="sheet.toggle.title" aria-label="Collapse"></button>
+  </div>
+  <section id="info" class="panel">
+    <dl>
+      <dt data-i18n="info.mass">Mass</dt><dd id="iMass"></dd>
+      <dt data-i18n="info.radius">Radius</dt><dd id="iRad"></dd>
+      <dt data-i18n="info.lum">Luminosity</dt><dd id="iLum"></dd>
+      <dt data-i18n="info.teff">Temperature</dt><dd id="iTeff"></dd>
+      <dt data-i18n="info.spt">Spectral type</dt><dd id="iSpt"></dd>
+      <dt data-i18n="info.rot">Rotation</dt><dd id="iRot"></dd>
+      <dt data-i18n="info.mdot">Mass loss</dt><dd id="iMdot"></dd>
+    </dl>
+    <canvas id="hr" width="320" height="250"></canvas>
+  </section>
+
+  <aside id="side">
+    <section id="burn" class="panel">
+      <h3 data-i18n="burn.title">Energy sources</h3>
+      <div id="burnHead" class="head"></div>
+      <ul id="burnList"></ul>
+      <p id="burnNote" class="note"></p>
+      <p class="fine" data-i18n="burn.fine">Estimated shares of the energy being released now.</p>
+    </section>
+    <section id="act" class="panel">
+      <h3 data-i18n="act.title">Magnetic activity</h3>
+      <div id="actBody"></div>
+      <p id="actClockRow" class="fine"><span data-i18n="act.drawnAt">Events drawn at</span> <button id="actClock" data-i18n-title="act.clock.title" title="Stellar time per real second used for flares and ejections. Click to change."></button> <span id="actShown"></span></p>
+    </section>
+  </aside>
+  </div>
+
+  <section id="caption" class="panel" hidden><h2></h2><p></p></section>
+  <section id="endcard" class="panel" hidden><h2 data-i18n="end.title">End of the simulation</h2><p></p></section>
+
+  <nav id="bar" class="panel">
+    <button id="bPause" data-i18n-title="bar.pause.title" title="Pause / resume (Space)">Pause</button>
+    <span class="sep"></span>
+    <button id="bSlower" data-i18n-title="bar.slower.title" title="Slower (-)">−</button>
+    <span id="mult"></span>
+    <button id="bFaster" data-i18n-title="bar.faster.title" title="Faster (+)">+</button>
+    <span class="sep"></span>
+    <button id="bAuto" data-i18n="bar.auto" data-i18n-title="bar.auto.title" class="toggle on" title="Auto pace: every phase takes a watchable time (A)">Auto pace</button>
+    <button id="bFrame" data-i18n="bar.frame" data-i18n-title="bar.frame.title" class="toggle on" title="Keep the star framed as it grows and shrinks (F)">Auto frame</button>
+    <button id="bRefs" data-i18n="bar.refs" data-i18n-title="bar.refs.title" class="toggle on" title="Scale references: the Sun, Earth, planetary orbits (R)">Scale</button>
+    <button id="bAct" data-i18n="bar.act" data-i18n-title="bar.act.title" class="toggle on" title="Starspots, flares, coronal mass ejections and prominences (M)">Activity</button>
+    <span class="sep"></span>
+    <button id="bFps" class="toggle" data-i18n-title="bar.fps.title" title="Frame rate and timing (P)">FPS</button>
+    <span class="sep"></span>
+    <button id="bHide" data-i18n="bar.hide" data-i18n-title="bar.hide.title" title="Hide the overlay (H)">Hide</button>
+    <button id="bSetup" data-i18n="bar.setup" data-i18n-title="bar.setup.title" title="Back to setup">New star</button>
+    <button id="bLang" class="lang1" data-i18n-title="bar.lang.title" title="Language: English / slovenščina (L)">SL</button>
+    <div id="progress"><i></i></div>
+  </nav>
+</div>
+<button id="unhide" hidden data-i18n="unhide" data-i18n-title="unhide.title" title="Show the overlay (H)">Show overlay</button>
+<section id="perf" class="panel" hidden aria-live="off">
+  <div class="perfhead"><b id="perfFps">–</b> <span>fps</span> <span id="perfFrame"></span></div>
+  <canvas id="perfGraph" width="220" height="46"></canvas>
+  <dl id="perfRows"></dl>
+  <p id="perfTrack" class="fine"></p>
+</section>
+<div id="fatal" hidden></div>
+
+<script src="dist/app.js"></script>
+</body>
+</html>

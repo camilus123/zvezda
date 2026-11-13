@@ -1,0 +1,16 @@
+{
+  "name": "zvezda",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Stellar evolution viewer (SSE: Hurley, Pols & Tout 2000)",
+  "scripts": {
+    "build": "esbuild src/app/main.js --bundle --format=iife --target=es2022 --alias:three=./vendor/three/build/three.module.js --alias:three/addons=./vendor/three/addons --outfile=dist/app.js --minify --legal-comments=none && node tools/pack.mjs",
+    "test": "node tests/verify.mjs && node tests/compare_cosmic.mjs",
+    "serve": "node tools/serve.mjs",
+    "pack": "node tools/pack.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
